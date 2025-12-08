@@ -256,7 +256,8 @@ doctype_js = {
         "public/js/purchase_order_item_group.js",
         "public/js/purchase_order_fetching_value.js"
     ],
-    "Purchase Receipt": "public/js/purchase_receipt_payment_button.js"
+    "Purchase Receipt": "public/js/purchase_receipt_payment_button.js",
+    "Payment Entry":"public/js/payment_entry_field_hide.js"
 }
 
 
