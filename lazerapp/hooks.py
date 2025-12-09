@@ -250,6 +250,15 @@ app_license = "mit"
 #     "Purchase Order": "public/js/purchase_order_item_group.js"
 # }
 
+# doctype_js = {
+#     "Material Request": "public/js/material_request_item_group.js",
+#     "Purchase Order": [
+#         "public/js/purchase_order_item_group.js",
+#         "public/js/purchase_order_fetching_value.js"
+#     ],
+#     "Purchase Receipt": "public/js/purchase_receipt_payment_button.js",
+#     "Payment Entry":"public/js/payment_entry_field_hide.js"
+# }
 doctype_js = {
     "Material Request": "public/js/material_request_item_group.js",
     "Purchase Order": [
@@ -257,8 +266,17 @@ doctype_js = {
         "public/js/purchase_order_fetching_value.js"
     ],
     "Purchase Receipt": "public/js/purchase_receipt_payment_button.js",
-    "Payment Entry":"public/js/payment_entry_field_hide.js"
+    "Payment Entry": "public/js/payment_entry_field_hide.js",
+    "Employee Transfer": "public/js/employee_transfer_benefit.js"
 }
+
+doc_events = {
+    "Employee Transfer": {
+        "before_save": "lazerapp.extend.employee_transfer_override.calculate_employee_indemnity"
+    }
+}
+
+
 
 
 
