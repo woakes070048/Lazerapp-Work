@@ -260,15 +260,40 @@ app_license = "mit"
 #     "Payment Entry":"public/js/payment_entry_field_hide.js"
 # }
 doctype_js = {
-    "Material Request": "public/js/material_request_item_group.js",
+    "Material Request": [
+        "public/js/material_request_item_group.js",
+        "public/js/extract_branch_code.js"
+    ],
+
     "Purchase Order": [
         "public/js/purchase_order_item_group.js",
-        "public/js/purchase_order_fetching_value.js"
+        "public/js/purchase_order_fetching_value.js",
+        "public/js/extract_branch_code.js"
     ],
-    "Purchase Receipt": "public/js/purchase_receipt_payment_button.js",
-    "Payment Entry": "public/js/payment_entry_field_hide.js",
-    "Employee Transfer": "public/js/employee_transfer_benefit.js"
+
+    "Purchase Receipt": [
+        "public/js/purchase_receipt_payment_button.js",
+        "public/js/extract_branch_code.js"
+    ],
+
+    "Payment Entry": [
+        "public/js/payment_entry_field_hide.js",
+        "public/js/extract_branch_code.js"
+    ],
+
+    "Employee Transfer": [
+        "public/js/employee_transfer_benefit.js"
+    ],
+
+    "Sales Invoice": [
+        "public/js/extract_branch_code.js"
+    ],
+
+    "Purchase Invoice": [
+        "public/js/extract_branch_code.js"
+    ]
 }
+
 
 doc_events = {
     "Employee Transfer": {
