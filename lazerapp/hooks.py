@@ -282,7 +282,8 @@ doctype_js = {
     ],
 
     "Employee Transfer": [
-        "public/js/employee_transfer_benefit.js"
+        "public/js/employee_transfer_benefit.js",
+        "public/js/extract_branch_code.js"
     ],
 
     "Sales Invoice": [
@@ -291,8 +292,12 @@ doctype_js = {
 
     "Purchase Invoice": [
         "public/js/extract_branch_code.js"
-    ]
+    ],
+    "Employee": [
+        "public/js/extract_branch_code.js"
+    ],
 }
+
 
 
 doc_events = {
