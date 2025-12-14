@@ -1,3 +1,4 @@
+app_name = "lazerapp"
 app_title = "Lazerapp"
 app_publisher = "eldho.mathew@webtreeonline.com"
 app_description = "lazerapp"
@@ -263,13 +264,15 @@ doctype_js = {
     "Material Request": [
         "public/js/material_request_item_group.js",
         "public/js/extract_branch_code.js",
-        "public/js/material_request_update_title.js"
+        "public/js/material_request_update_title.js",
+        "public/js/history_back.js"
+
     ],
 
     "Purchase Order": [
         "public/js/purchase_order_item_group.js",
-        "public/js/purchase_order_fetching_value.js",
-        "public/js/extract_branch_code.js"
+        "public/js/extract_branch_code.js",
+        "public/js/purchase_order_vat_update.js"
     ],
 
     "Purchase Receipt": [
@@ -278,7 +281,7 @@ doctype_js = {
     ],
 
     "Payment Entry": [
-        "public/js/payment_entry_field_hide.js",
+        "public/js/payment_entry.js",
         "public/js/extract_branch_code.js"
     ],
 
@@ -299,15 +302,28 @@ doctype_js = {
     ],
 }
 
-
-
-doc_events = {
-    "Employee Transfer": {
-        "before_save": "lazerapp.extend.employee_transfer_override.calculate_employee_indemnity"
+fixtures = [
+    {
+        "doctype": "Property Setter",
+        "filters": [
+            ["doc_type", "=", "Material Request"],
+            ["field_name", "=", "material_request_type"]
+        ]
     }
-}
+]
 
 
+
+
+# doc_events = {
+#     "Employee Transfer": {
+#         "before_save": "lazerapp.extend.employee_transfer_override.calculate_employee_indemnity"
+#     }
+# }
+
+app_include_js = [
+    "/assets/lazerapp/js/history_back.js"
+]
 
 
 
@@ -320,5 +336,29 @@ fixtures = ["Custom Field", "Property Setter"]
 
 app_include_js = ["lazerapp/public/js/history_back.js"]
 app_include_css = ["lazerapp/public/css/history_back.css"]
+
+override_doctype_class = {
+    "Purchase Order": "lazerapp.doctype_overrides.purchase_order_override.CustomPurchaseOrder"
+}
+
+doc_events = {
+    "Purchase Order": {
+        "before_save": "lazerapp.doctype_overrides.bahrain_rounding.apply_bahrain_rounding"
+    },
+    "Purchase Invoice": {
+        "before_save": "lazerapp.doctype_overrides.bahrain_rounding.apply_bahrain_rounding"
+    },
+    "Sales Invoice": {
+        "before_save": "lazerapp.doctype_overrides.bahrain_rounding.apply_bahrain_rounding"
+    },
+    "Sales Order": {
+        "before_save": "lazerapp.doctype_overrides.bahrain_rounding.apply_bahrain_rounding"
+    },
+    "Quotation": {
+        "before_save": "lazerapp.doctype_overrides.bahrain_rounding.apply_bahrain_rounding"
+    },
+}
+
+
 
 
